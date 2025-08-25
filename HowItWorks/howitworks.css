@@ -1,0 +1,434 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: #000;
+    overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: auto;
+    min-height: 100vh;
+    background: radial-gradient(circle at center, #000 0%, #000 70%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    border-bottom: 4px solid rgba(182, 167, 167, 0.5);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-section video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero-content {
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1.5s ease-out 0.5s forwards;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-title {
+    font-size: clamp(2rem, 8vw, 5rem);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    font-weight: 300;
+    color: #e0e0e0;
+    margin-bottom: 2rem;
+}
+
+.hero-description {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: #b0b0b0;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%) skewY(20deg) scale(3);
+    color: rgba(40, 187, 228, 0.984);
+    animation: bounce 2s infinite;
+    cursor: crosshair;
+}
+
+/* Traditional Sections */
+.traditional-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    padding: 60px 20px;
+    position: relative;
+}
+
+.section-dark {
+    background: rgba(94, 87, 87, 0.6);
+}
+
+.section-gradient {
+    background: linear-gradient(135deg, #9d9fa6 0%, #745f88 100%);
+}
+
+.section-purple {
+    background: linear-gradient(135deg, #8e86a3 0%, #26274f 100%);
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.section-content {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.8s ease-out;
+}
+
+.section-content.animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.section-visual {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.8s ease-out;
+}
+
+.section-visual.animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.section-visual img {
+    max-width: 100%;
+    height: auto;
+}
+
+.section-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1.5rem;
+}
+
+.section-description {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+}
+
+.section-features {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.section-features li {
+    padding: 0.8rem 0;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.section-features li:hover {
+    color: #fff;
+    padding-left: 15px;
+}
+
+/* Transition Section */
+.transition-section {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background: rgba(179, 62, 62, 0.1);
+}
+
+.transition-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../assets/img/apollo-integration.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.07;
+    transition: opacity 0.9s ease;
+}
+
+.transition-section:hover::before {
+    opacity: 2.1;
+}
+
+.transition-content {
+    z-index: 1;
+    max-width: 700px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.transition-title {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.transition-subtitle {
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Membership Section */
+.membership-section {
+    position: relative;
+    min-height: 80vh;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.membership-section video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.membership-container {
+    z-index: 1;
+    max-width: 500px;
+    text-align: center;
+    padding: 20px;
+}
+
+.membership-title {
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1.5rem;
+}
+
+.membership-description {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+}
+
+.membership-badge {
+    display: inline-block;
+    background: rgba(36, 38, 171, 0.2);
+    color: #fff;
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    border: 2px solid rgba(241, 99, 99, 0.3);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    40% {
+        transform: translateX(-50%) translateY(-8px);
+    }
+
+    60% {
+        transform: translateX(-50%) translateY(-4px);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .section-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .section-visual {
+        order: -1;
+        transform: translateY(30px);
+    }
+
+    .section-visual.animate {
+        transform: translateY(0);
+    }
+
+    .section-content {
+        transform: translateY(30px);
+    }
+
+    .section-content.animate {
+        transform: translateY(0);
+    }
+
+    .hero-section,
+    .traditional-section,
+    .membership-section,
+    .transition-section {
+        min-height: 70vh;
+        padding: 40px 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: clamp(1.8rem, 10vw, 3rem);
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1rem, 6vw, 1.8rem);
+    }
+
+    .hero-description {
+        font-size: clamp(0.9rem, 4vw, 1.1rem);
+    }
+
+    .section-title {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+    }
+
+    .section-description {
+        font-size: clamp(0.9rem, 4vw, 1.1rem);
+    }
+
+    .section-features li {
+        font-size: clamp(0.9rem, 3vw, 1rem);
+    }
+
+    .membership-container {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .transition-title {
+        font-size: clamp(1.5rem, 8vw, 2.5rem);
+    }
+
+    .transition-subtitle {
+        font-size: clamp(0.9rem, 4vw, 1.2rem);
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hero-section,
+    .traditional-section,
+    .membership-section,
+    .transition-section {
+        min-height: 60vh;
+        padding: 30px 10px;
+    }
+
+    .hero-title {
+        font-size: clamp(1.5rem, 12vw, 2.5rem);
+    }
+
+    .hero-subtitle {
+        font-size: clamp(0.9rem, 8vw, 1.5rem);
+    }
+
+    .section-title {
+        font-size: clamp(1.5rem, 10vw, 2rem);
+    }
+
+    .membership-title {
+        font-size: clamp(1.8rem, 10vw, 2.5rem);
+    }
+
+    .membership-description {
+        font-size: clamp(0.9rem, 4vw, 1rem);
+    }
+
+    .cookie-popup {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .cookie-btn {
+        padding: 6px 12px;
+        font-size: clamp(0.8rem, 3vw, 0.9rem);
+    }
+}
+
+@media (max-width: 360px) {
+
+    .hero-content,
+    .section-container {
+        padding: 0 8px;
+    }
+
+    .hero-title {
+        font-size: clamp(1.4rem, 10vw, 2rem);
+    }
+
+    .section-title {
+        font-size: clamp(1.4rem, 8vw, 1.8rem);
+    }
+
+    .membership-title {
+        font-size: clamp(1.5rem, 8vw, 2rem);
+    }
+}
